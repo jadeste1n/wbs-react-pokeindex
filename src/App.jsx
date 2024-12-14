@@ -5,10 +5,6 @@ import pokemonDetail from "./pages/pokemonDetail";
 import NotFound from "./pages/notFound";
 import {
 	createBrowserRouter,
-	createRoutesFromElements,
-	Link,
-	Outlet,
-	Route,
 	RouterProvider,
 } from "react-router-dom"; // Import required components and functions
 
