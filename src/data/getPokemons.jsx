@@ -2,26 +2,26 @@
 const PokemonBaseUrl = `https://pokeapi.co/api/v2/pokemon/`
 
 //fetch Data
-const getPokemons = async (setStatus, setPokemons) => {
+const GetPokemons = async (setStatus, setPokemons) => {
 
     let arrayOfPokemons = []
 
     try {
+        setStatus('loading');
+        //try a for loop & create an array of fetched data
         for (let i = 1; i < 150; i++) {
-
-            //wait for fetch string
-            const result = await fetch(`${PokemonBaseUrl}${i}`);
+            const result = await fetch(`${PokemonBaseUrl}${i}`); //wait for fetch string
             //for ux
             if (!result.ok) {
                 setStatus('error');
                 throw new Error('Something went wrong...');
             }
-            //if we get ok, parse to javascript object
-            const data = await result.json();
-            arrayOfPokemons.push(data)
+            const data = await result.json();//if we get ok, parse to javascript object
+            arrayOfPokemons.push(data) // if parsed, add it to array
         }
-        // if parsed, add to the array
+        // change state of Pokemon array to the new fetched elements
         setPokemons(arrayOfPokemons);
+        setStatus('');
     } catch (error) {
         console.log(error);
     }
@@ -29,4 +29,4 @@ const getPokemons = async (setStatus, setPokemons) => {
 
 }
 
-export default getPokemons;
+export default GetPokemons;

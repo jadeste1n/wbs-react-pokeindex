@@ -1,8 +1,7 @@
-import { useState } from "react";
 import "./App.css";
 import Home from "./pages/Home";
-import pokemonDetail from "./pages/pokemonDetail";
-import NotFound from "./pages/notFound";
+import PokemonDetail from "./pages/PokemonDetail";
+import NotFound from "./pages/NotFound";
 import {
 	createBrowserRouter,
 	RouterProvider,
@@ -17,7 +16,7 @@ const routes = [
 	},
 	{
 		path: "/pokemon/:name",
-		element: <pokemonDetail />,
+		element: <PokemonDetail />,
 		errorElement: <NotFound />,
 	},
 ];
@@ -27,7 +26,7 @@ const router = createBrowserRouter(routes);
 
 function App() {
 	return (
-		<>
+		<> 
 			<RouterProvider router={router} />
 		</>
 	);
